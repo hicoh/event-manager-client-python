@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_job**](JobApi.md#create_job) | **POST** /event_manager/job | Create a new job
 [**create_job_schedule**](JobApi.md#create_job_schedule) | **POST** /event_manager/job/schedule | Create a job schedule
+[**create_source_job**](JobApi.md#create_source_job) | **POST** /event_manager/job/source | Trigger a job to be sent to the source
 [**delete_job**](JobApi.md#delete_job) | **DELETE** /event_manager/job | Delete jobs
 [**get_job_by_id**](JobApi.md#get_job_by_id) | **GET** /event_manager/job/{job_id} | Get a job by job id
 [**get_jobs_by**](JobApi.md#get_jobs_by) | **GET** /event_manager/job | Get a list of jobs by
@@ -154,6 +155,88 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organisation_id** | **str**|  | [optional]
  **job_schedule_request** | [**JobScheduleRequest**](JobScheduleRequest.md)|  | [optional]
+
+### Return type
+
+[**AsyncResponse**](AsyncResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Request accepted |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_source_job**
+> AsyncResponse create_source_job()
+
+Trigger a job to be sent to the source
+
+### Example
+
+* Api Key Authentication (apikey):
+```python
+import time
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.source_job_request import SourceJobRequest
+from event_manager_client.model.async_response import AsyncResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.highcohesion.com/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = event_manager_client.Configuration(
+    host = "https://api.highcohesion.com/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apikey
+configuration.api_key['apikey'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with event_manager_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = job_api.JobApi(api_client)
+    organisation_id = "organisation-id_example" # str |  (optional)
+    source_job_request = SourceJobRequest(
+        stream_id="60e5b1b405b1e2db6ebd3bee",
+        original_job_id="60e5b1b405b1e2db6ebd3bee",
+        settings="{"stream":{"user":{"additional_settings:["test": true]}}}",
+    ) # SourceJobRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Trigger a job to be sent to the source
+        api_response = api_instance.create_source_job(organisation_id=organisation_id, source_job_request=source_job_request)
+        pprint(api_response)
+    except event_manager_client.ApiException as e:
+        print("Exception when calling JobApi->create_source_job: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organisation_id** | **str**|  | [optional]
+ **source_job_request** | [**SourceJobRequest**](SourceJobRequest.md)|  | [optional]
 
 ### Return type
 
@@ -544,11 +627,21 @@ with event_manager_client.ApiClient(configuration) as api_client:
         status="FINISHED",
         message="The job finished",
     ) # UpdateJobRequest | The fields to update
+    organisation_id = "organisation-id_example" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update job
         api_response = api_instance.update_job(update_job_request)
+        pprint(api_response)
+    except event_manager_client.ApiException as e:
+        print("Exception when calling JobApi->update_job: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update job
+        api_response = api_instance.update_job(update_job_request, organisation_id=organisation_id)
         pprint(api_response)
     except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->update_job: %s\n" % e)
@@ -560,6 +653,7 @@ with event_manager_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **update_job_request** | [**UpdateJobRequest**](UpdateJobRequest.md)| The fields to update |
+ **organisation_id** | **str**|  | [optional]
 
 ### Return type
 

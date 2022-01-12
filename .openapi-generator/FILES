@@ -32,6 +32,7 @@ docs/ReplicateParentAggregateEventRequest.md
 docs/ReplicateWebhook.md
 docs/ScheduleConfiguration.md
 docs/ScheduleConfigurationRequest.md
+docs/SourceJobRequest.md
 docs/StreamApi.md
 docs/SyncResponse.md
 docs/UpdateChildEventRequest.md
@@ -78,6 +79,7 @@ event_manager_client/model/replicate_parent_aggregate_event_request.py
 event_manager_client/model/replicate_webhook.py
 event_manager_client/model/schedule_configuration.py
 event_manager_client/model/schedule_configuration_request.py
+event_manager_client/model/source_job_request.py
 event_manager_client/model/sync_response.py
 event_manager_client/model/update_child_event_request.py
 event_manager_client/model/update_event_entity_request.py
@@ -92,4 +94,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_source_job_request.py
 tox.ini
