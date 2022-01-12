@@ -1,4 +1,4 @@
-# openapi_client.AggregateApi
+# event_manager_client.AggregateApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -19,13 +19,13 @@ Aggregate all events from a specific job
 * Api Key Authentication (admin_apikey):
 ```python
 import time
-import openapi_client
-from Service import aggregate_api
-from openapi_client.model.async_response import AsyncResponse
+import event_manager_client
+from event_manager_client.api import aggregate_api
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -41,7 +41,7 @@ configuration.api_key['admin_apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['admin_apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aggregate_api.AggregateApi(api_client)
     organisation_id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -53,7 +53,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Aggregate all events from a specific job
         api_response = api_instance.get_aggregate_events(organisation_id, stream_id, job_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling AggregateApi->get_aggregate_events: %s\n" % e)
 ```
 
@@ -97,14 +97,14 @@ Replicate Child Aggregate Event
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import aggregate_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_event_request import ReplicateEventRequest
+import event_manager_client
+from event_manager_client.api import aggregate_api
+from event_manager_client.model.replicate_event_request import ReplicateEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -120,7 +120,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aggregate_api.AggregateApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -136,7 +136,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Replicate Child Aggregate Event
         api_response = api_instance.replicate_child_aggregate_event(organisation_id=organisation_id, replicate_event_request=replicate_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling AggregateApi->replicate_child_aggregate_event: %s\n" % e)
 ```
 
@@ -179,14 +179,14 @@ Replicate a Parent Aggregate event
 * Api Key Authentication (admin_apikey):
 ```python
 import time
-import openapi_client
-from Service import aggregate_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_parent_aggregate_event_request import ReplicateParentAggregateEventRequest
+import event_manager_client
+from event_manager_client.api import aggregate_api
+from event_manager_client.model.replicate_parent_aggregate_event_request import ReplicateParentAggregateEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -202,7 +202,7 @@ configuration.api_key['admin_apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['admin_apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aggregate_api.AggregateApi(api_client)
     replicate_parent_aggregate_event_request = ReplicateParentAggregateEventRequest(
@@ -216,7 +216,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Replicate a Parent Aggregate event
         api_response = api_instance.replicate_parent_aggregate_event(replicate_parent_aggregate_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling AggregateApi->replicate_parent_aggregate_event: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -225,7 +225,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Replicate a Parent Aggregate event
         api_response = api_instance.replicate_parent_aggregate_event(replicate_parent_aggregate_event_request, organisation_id=organisation_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling AggregateApi->replicate_parent_aggregate_event: %s\n" % e)
 ```
 

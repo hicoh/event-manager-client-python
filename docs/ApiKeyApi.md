@@ -1,4 +1,4 @@
-# openapi_client.ApiKeyApi
+# event_manager_client.ApiKeyApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -19,14 +19,14 @@ Create a new API key
 * Api Key Authentication (admin_apikey):
 ```python
 import time
-import openapi_client
-from Service import api_key_api
-from openapi_client.model.api_key_request import ApiKeyRequest
-from openapi_client.model.api_key_response import ApiKeyResponse
+import event_manager_client
+from event_manager_client.api import api_key_api
+from event_manager_client.model.api_key_response import ApiKeyResponse
+from event_manager_client.model.api_key_request import ApiKeyRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['admin_apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['admin_apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.ApiKeyApi(api_client)
     api_key_request = ApiKeyRequest(
@@ -57,7 +57,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Create a new API key
         api_response = api_instance.create_api_key(api_key_request=api_key_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling ApiKeyApi->create_api_key: %s\n" % e)
 ```
 
@@ -99,13 +99,13 @@ Delete an API key
 * Api Key Authentication (admin_apikey):
 ```python
 import time
-import openapi_client
-from Service import api_key_api
-from openapi_client.model.error_response import ErrorResponse
+import event_manager_client
+from event_manager_client.api import api_key_api
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -121,7 +121,7 @@ configuration.api_key['admin_apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['admin_apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.ApiKeyApi(api_client)
     organisation_id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -131,7 +131,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Delete an API key
         api_instance.delete_api_key(organisation_id, key_id)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling ApiKeyApi->delete_api_key: %s\n" % e)
 ```
 
@@ -175,13 +175,13 @@ Fetch all API keys associated with an Organisation
 * Api Key Authentication (admin_apikey):
 ```python
 import time
-import openapi_client
-from Service import api_key_api
-from openapi_client.model.api_key_list import ApiKeyList
+import event_manager_client
+from event_manager_client.api import api_key_api
+from event_manager_client.model.api_key_list import ApiKeyList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -197,7 +197,7 @@ configuration.api_key['admin_apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['admin_apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.ApiKeyApi(api_client)
     organisation_id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -207,7 +207,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Fetch all API keys associated with an Organisation
         api_response = api_instance.get_all_api_keys_by_organisation(organisation_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling ApiKeyApi->get_all_api_keys_by_organisation: %s\n" % e)
 ```
 

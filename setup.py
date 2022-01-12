@@ -11,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "openapi-client"
-VERSION = "1.0.0"
+NAME = "event-manager-client-python"
+VERSION = "1.0.21"
 # To install the library, run the following
 #
 # python setup.py install
@@ -31,7 +31,7 @@ setup(
     description="HighCohesion API",
     author="OpenAPI Generator community",
     author_email="admin@highcohesion.com",
-    url="",
+    url="https://github.com/hicoh/event-manager-client-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "HighCohesion API"],
     python_requires=">=3.6",
     install_requires=REQUIRES,

@@ -1,4 +1,4 @@
-# openapi_client.HealthApi
+# event_manager_client.HealthApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -17,13 +17,13 @@ Get Health
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import health_api
-from openapi_client.model.health import Health
+import event_manager_client
+from event_manager_client.api import health_api
+from event_manager_client.model.health import Health
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -39,7 +39,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = health_api.HealthApi(api_client)
 
@@ -48,7 +48,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get Health
         api_response = api_instance.get_health()
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling HealthApi->get_health: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-# openapi_client.WebhookApi
+# event_manager_client.WebhookApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -20,13 +20,13 @@ Dynamic Webhook
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import webhook_api
-from openapi_client.model.async_response import AsyncResponse
+import event_manager_client
+from event_manager_client.api import webhook_api
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhook_api.WebhookApi(api_client)
     stream_id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -53,7 +53,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Dynamic Webhook
         api_response = api_instance.post_dynamic_webhook(stream_id, body)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling WebhookApi->post_dynamic_webhook: %s\n" % e)
 ```
 
@@ -96,13 +96,13 @@ Static Webhook
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import webhook_api
-from openapi_client.model.async_response import AsyncResponse
+import event_manager_client
+from event_manager_client.api import webhook_api
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -118,7 +118,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhook_api.WebhookApi(api_client)
     stream_id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -129,7 +129,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Static Webhook
         api_response = api_instance.post_static_webhook(stream_id, body)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling WebhookApi->post_static_webhook: %s\n" % e)
 ```
 
@@ -171,20 +171,20 @@ Replicate Dynamic Webhook
 
 ```python
 import time
-import openapi_client
-from Service import webhook_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_webhook import ReplicateWebhook
+import event_manager_client
+from event_manager_client.api import webhook_api
+from event_manager_client.model.replicate_webhook import ReplicateWebhook
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with event_manager_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = webhook_api.WebhookApi(api_client)
     replicate_webhook = ReplicateWebhook(
@@ -196,7 +196,7 @@ with openapi_client.ApiClient() as api_client:
         # Replicate Dynamic Webhook
         api_response = api_instance.replicate_dynamic_webhook(replicate_webhook)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling WebhookApi->replicate_dynamic_webhook: %s\n" % e)
 ```
 
@@ -237,20 +237,20 @@ Replicate Static Webhook
 
 ```python
 import time
-import openapi_client
-from Service import webhook_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_webhook import ReplicateWebhook
+import event_manager_client
+from event_manager_client.api import webhook_api
+from event_manager_client.model.replicate_webhook import ReplicateWebhook
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with event_manager_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = webhook_api.WebhookApi(api_client)
     replicate_webhook = ReplicateWebhook(
@@ -262,7 +262,7 @@ with openapi_client.ApiClient() as api_client:
         # Replicate Static Webhook
         api_response = api_instance.replicate_static_webhook(replicate_webhook)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling WebhookApi->replicate_static_webhook: %s\n" % e)
 ```
 
