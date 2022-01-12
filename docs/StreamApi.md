@@ -1,4 +1,4 @@
-# openapi_client.StreamApi
+# event_manager_client.StreamApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -20,14 +20,14 @@ Create a new Stream Schedule Configuration
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import stream_api
-from openapi_client.model.schedule_configuration import ScheduleConfiguration
-from openapi_client.model.schedule_configuration_request import ScheduleConfigurationRequest
+import event_manager_client
+from event_manager_client.api import stream_api
+from event_manager_client.model.schedule_configuration_request import ScheduleConfigurationRequest
+from event_manager_client.model.schedule_configuration import ScheduleConfiguration
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -43,7 +43,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stream_api.StreamApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -59,7 +59,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Create a new Stream Schedule Configuration
         api_response = api_instance.create_schedule_configuration(organisation_id=organisation_id, schedule_configuration_request=schedule_configuration_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->create_schedule_configuration: %s\n" % e)
 ```
 
@@ -102,13 +102,13 @@ Delete a Stream Schedule Configuration
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import stream_api
-from openapi_client.model.sync_response import SyncResponse
+import event_manager_client
+from event_manager_client.api import stream_api
+from event_manager_client.model.sync_response import SyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -124,7 +124,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stream_api.StreamApi(api_client)
     stream_id = "stream_id_example" # str | Stream Id
@@ -135,7 +135,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Delete a Stream Schedule Configuration
         api_response = api_instance.delete_schedule_configuration(stream_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->delete_schedule_configuration: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -144,7 +144,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Delete a Stream Schedule Configuration
         api_response = api_instance.delete_schedule_configuration(stream_id, organisation_id=organisation_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->delete_schedule_configuration: %s\n" % e)
 ```
 
@@ -187,14 +187,14 @@ Get a Stream Schedule Configuration by Stream Id
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import stream_api
-from openapi_client.model.schedule_configuration import ScheduleConfiguration
-from openapi_client.model.error_response import ErrorResponse
+import event_manager_client
+from event_manager_client.api import stream_api
+from event_manager_client.model.schedule_configuration import ScheduleConfiguration
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -210,7 +210,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stream_api.StreamApi(api_client)
     stream_id = "stream_id_example" # str | Stream Id
@@ -221,7 +221,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get a Stream Schedule Configuration by Stream Id
         api_response = api_instance.get_schedule_configuration(stream_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->get_schedule_configuration: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -230,7 +230,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get a Stream Schedule Configuration by Stream Id
         api_response = api_instance.get_schedule_configuration(stream_id, organisation_id=organisation_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->get_schedule_configuration: %s\n" % e)
 ```
 
@@ -274,14 +274,14 @@ Updates Stream Schedule Configuration option and active attributes.
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import stream_api
-from openapi_client.model.patch_sync_response import PatchSyncResponse
-from openapi_client.model.schedule_configuration_request import ScheduleConfigurationRequest
+import event_manager_client
+from event_manager_client.api import stream_api
+from event_manager_client.model.schedule_configuration_request import ScheduleConfigurationRequest
+from event_manager_client.model.patch_sync_response import PatchSyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -297,7 +297,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stream_api.StreamApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -313,7 +313,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Updates Stream Schedule Configuration option and active attributes.
         api_response = api_instance.update_schedule_configuration_attributes(organisation_id=organisation_id, schedule_configuration_request=schedule_configuration_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling StreamApi->update_schedule_configuration_attributes: %s\n" % e)
 ```
 

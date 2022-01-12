@@ -1,10 +1,6 @@
 {
-  "variableNamingConvention": "camelCase",
-  "packagePath": "hicoh/event-manager-client",
-  "invokerPackage": "HiCo\\EventManagerClient",
-  "modelPackage":"Model",
-  "apiPackage":"Service",
-  "srcBasePath":"src/",
-  "gitUserId": "hicoh",
-  "gitRepoId": "event-manager-client-python"
+  "packageName": "event_manager_client",
+  "packageUrl": "https://github.com/hicoh/event-manager-client-python",
+  "packageVersion": "1.0.21",
+  "projectName": "event-manager-client-python"
 }

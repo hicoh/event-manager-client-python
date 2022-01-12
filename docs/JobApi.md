@@ -1,4 +1,4 @@
-# openapi_client.JobApi
+# event_manager_client.JobApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -23,14 +23,14 @@ Create a new job
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.job_request import JobRequest
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.job_request import JobRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     job_request = JobRequest(
@@ -62,7 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Create a new job
         api_response = api_instance.create_job(job_request=job_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->create_job: %s\n" % e)
 ```
 
@@ -104,14 +104,14 @@ Create a job schedule
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.job_schedule_request import JobScheduleRequest
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.job_schedule_request import JobScheduleRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -127,7 +127,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -143,7 +143,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Create a job schedule
         api_response = api_instance.create_job_schedule(organisation_id=organisation_id, job_schedule_request=job_schedule_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->create_job_schedule: %s\n" % e)
 ```
 
@@ -186,13 +186,13 @@ Delete jobs
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.sync_response import SyncResponse
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.sync_response import SyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -208,7 +208,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -223,7 +223,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Delete jobs
         api_response = api_instance.delete_job(organisation_id=organisation_id, id=id, stream_id=stream_id, status=status, due_at=due_at)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->delete_job: %s\n" % e)
 ```
 
@@ -269,14 +269,14 @@ Get a job by job id
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.error_response import ErrorResponse
-from openapi_client.model.job import Job
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.job import Job
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -292,7 +292,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     job_id = "job_id_example" # str | The job id
@@ -302,7 +302,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get a job by job id
         api_response = api_instance.get_job_by_id(job_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->get_job_by_id: %s\n" % e)
 ```
 
@@ -345,14 +345,14 @@ Get a list of jobs by
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.job_list import JobList
-from openapi_client.model.error_response import ErrorResponse
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.job_list import JobList
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -368,7 +368,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     id = "id_example" # str | The job id (optional)
@@ -384,7 +384,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get a list of jobs by
         api_response = api_instance.get_jobs_by(id=id, stream_id=stream_id, status=status, limit=limit, order_by=order_by, offset=offset)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->get_jobs_by: %s\n" % e)
 ```
 
@@ -432,14 +432,14 @@ Replicate job
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_job_request import ReplicateJobRequest
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.replicate_job_request import ReplicateJobRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -455,7 +455,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     replicate_job_request = ReplicateJobRequest(
@@ -471,7 +471,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Replicate job
         api_response = api_instance.replicate_job(replicate_job_request=replicate_job_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->replicate_job: %s\n" % e)
 ```
 
@@ -513,14 +513,14 @@ Update job
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import job_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.update_job_request import UpdateJobRequest
+import event_manager_client
+from event_manager_client.api import job_api
+from event_manager_client.model.update_job_request import UpdateJobRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -536,7 +536,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_api.JobApi(api_client)
     update_job_request = UpdateJobRequest(
@@ -550,7 +550,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Update job
         api_response = api_instance.update_job(update_job_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling JobApi->update_job: %s\n" % e)
 ```
 

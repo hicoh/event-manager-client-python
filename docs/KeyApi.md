@@ -1,4 +1,4 @@
-# openapi_client.KeyApi
+# event_manager_client.KeyApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -17,12 +17,12 @@ Fetch key
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import key_api
+import event_manager_client
+from event_manager_client.api import key_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -38,7 +38,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = key_api.KeyApi(api_client)
     id = "123e4567-e89b-12d3-a456-426614174000" # str | 
@@ -48,7 +48,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Fetch key
         api_response = api_instance.get_key(id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling KeyApi->get_key: %s\n" % e)
 ```
 

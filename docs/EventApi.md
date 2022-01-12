@@ -1,4 +1,4 @@
-# openapi_client.EventApi
+# event_manager_client.EventApi
 
 All URIs are relative to *https://api.highcohesion.com/v1*
 
@@ -22,14 +22,14 @@ Get an event by event id
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.error_response import ErrorResponse
-from openapi_client.model.event import Event
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.event import Event
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -45,7 +45,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     event_id = "event_id_example" # str | The event id
@@ -55,7 +55,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get an event by event id
         api_response = api_instance.get_event_by_id(event_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->get_event_by_id: %s\n" % e)
 ```
 
@@ -98,14 +98,14 @@ Get a list of events by
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.error_response import ErrorResponse
-from openapi_client.model.event_list import EventList
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.event_list import EventList
+from event_manager_client.model.error_response import ErrorResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -121,7 +121,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     id = "id_example" # str | The event id (optional)
@@ -138,7 +138,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Get a list of events by
         api_response = api_instance.get_events_by(id=id, job_id=job_id, stream_id=stream_id, status=status, limit=limit, order_by=order_by, offset=offset)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->get_events_by: %s\n" % e)
 ```
 
@@ -187,14 +187,14 @@ Redrive Event
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.redrive_event_request import RedriveEventRequest
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.redrive_event_request import RedriveEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -210,7 +210,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     redrive_event_request = RedriveEventRequest(
@@ -222,7 +222,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Redrive Event
         api_response = api_instance.redrive_event(redrive_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->redrive_event: %s\n" % e)
 ```
 
@@ -264,14 +264,14 @@ Replicate Event
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.replicate_event_request import ReplicateEventRequest
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.replicate_event_request import ReplicateEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -287,7 +287,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     organisation_id = "organisation-id_example" # str |  (optional)
@@ -303,7 +303,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Replicate Event
         api_response = api_instance.replicate_event(organisation_id=organisation_id, replicate_event_request=replicate_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->replicate_event: %s\n" % e)
 ```
 
@@ -346,14 +346,14 @@ Update Child Event via the Parent Event ID and the entity name
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.update_child_event_request import UpdateChildEventRequest
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.update_child_event_request import UpdateChildEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -369,7 +369,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     update_child_event_request = UpdateChildEventRequest(
@@ -386,7 +386,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Update Child Event via the Parent Event ID and the entity name
         api_response = api_instance.update_child_event(update_child_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->update_child_event: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -395,7 +395,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Update Child Event via the Parent Event ID and the entity name
         api_response = api_instance.update_child_event(update_child_event_request, organisation_id=organisation_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->update_child_event: %s\n" % e)
 ```
 
@@ -438,14 +438,14 @@ Update Event
 * Api Key Authentication (apikey):
 ```python
 import time
-import openapi_client
-from Service import event_api
-from openapi_client.model.async_response import AsyncResponse
-from openapi_client.model.update_event_request import UpdateEventRequest
+import event_manager_client
+from event_manager_client.api import event_api
+from event_manager_client.model.update_event_request import UpdateEventRequest
+from event_manager_client.model.async_response import AsyncResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.highcohesion.com/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = event_manager_client.Configuration(
     host = "https://api.highcohesion.com/v1"
 )
 
@@ -461,7 +461,7 @@ configuration.api_key['apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['apikey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with event_manager_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = event_api.EventApi(api_client)
     update_event_request = UpdateEventRequest(
@@ -477,7 +477,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Update Event
         api_response = api_instance.update_event(update_event_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except event_manager_client.ApiException as e:
         print("Exception when calling EventApi->update_event: %s\n" % e)
 ```
 
