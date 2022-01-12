@@ -2,5 +2,7 @@
   "packageName": "event_manager_client",
   "packageUrl": "https://github.com/hicoh/event-manager-client-python",
   "packageVersion": "1.0.21",
-  "projectName": "event-manager-client-python"
+  "projectName": "event-manager-client-python",
+  "gitUserId": "hicoh",
+  "gitRepoId": "event-manager-client-python"
 }
